@@ -1,0 +1,44 @@
+// Payv class
+class Payv {
+    private var balance: Double = 0.0
+
+    // Constructor
+    constructor(initialBalance: Double) {
+        balance = initialBalance
+    }
+
+    // Deposit method
+    fun deposit(amount: Double) {
+        balance += amount
+        println("Deposit successful. New balance: $balance")
+    }
+
+    // Withdraw method
+    fun withdraw(amount: Double) {
+        if (amount <= balance) {
+            balance -= amount
+            println("Withdrawal successful. New balance: $balance")
+        } else {
+            println("Insufficient funds. Withdrawal failed.")
+        }
+    }
+
+    // Display balance method
+    fun displayBalance() {
+        println("Current balance: $balance")
+    }
+}
+
+fun main() {
+    // Creating an instance of Payv class with initial balance of 1000
+    val payv = Payv(1000.0)
+
+    // Depositing 500
+    payv.deposit(500.0)
+
+    // Withdrawing 200
+    payv.withdraw(200.0)
+
+    // Displaying current balance
+    payv.displayBalance()
+}
